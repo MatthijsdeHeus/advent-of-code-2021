@@ -12,9 +12,11 @@ namespace advent_of_code
 
         public static void Run()
         {
-            int answer = Part2();
+            int part1Answer = Part1();
+            int part2Answer = Part2();
 
-            Console.WriteLine(answer);
+            Console.WriteLine("Day 1, Part 1 = " + part1Answer);
+            Console.WriteLine("Day 1, Part 2 = " + part2Answer);
         }
 
         static int Part1()
