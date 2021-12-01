@@ -8,7 +8,8 @@ namespace advent_of_code
 {
     static class Day1
     {
-        static List<int> input = File.ReadAllLines(@"C:\Users\Matthijs\Documents\advent-of-code\advent-of-code-2021\advent_of_code\advent_of_code\Input\day1.txt").ToList().Select(int.Parse).ToList();
+        static string pathToInput = "..\\..\\..\\Input\\day1.txt";
+        static List<int> input = File.ReadAllLines(pathToInput).ToList().Select(int.Parse).ToList();
 
         public static void Run()
         {
