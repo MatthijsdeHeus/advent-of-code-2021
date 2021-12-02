@@ -9,7 +9,7 @@ namespace advent_of_code
     static class Day2
     {
         static string pathToInput = "..\\..\\..\\Input\\day2.txt";
-        static List<int> input = File.ReadAllLines(pathToInput).ToList().Select(int.Parse).ToList();
+        static List<string> input = File.ReadAllLines(pathToInput).ToList();
 
         public static void Run()
         {
@@ -22,12 +22,68 @@ namespace advent_of_code
 
         static int Part1()
         {
-            return 0;
+            var depth = 0;
+            var horizontal = 0;
+
+            for (int i = 0; i < input.Count; i++)
+            {
+                var lineSplitted = input[i].Split(' ', 2);
+                
+                var command = lineSplitted[0];
+
+                var amount = Int32.Parse(lineSplitted[1]);
+
+                switch (command)
+                {
+                    case "forward":
+                        horizontal += amount;
+                        break;
+
+                    case "down":
+                        depth += amount;
+                        break;
+
+                    case "up":
+                        depth -= amount;
+                        break;
+                }
+            }
+
+            return (horizontal * depth);
         }
 
         static int Part2()
         {
-            return 0;
+            var depth = 0;
+            var horizontal = 0;
+            var aim = 0;
+
+            for (int i = 0; i < input.Count; i++)
+            {
+                var lineSplitted = input[i].Split(' ', 2);
+
+                var command = lineSplitted[0];
+
+                var amount = Int32.Parse(lineSplitted[1]);
+
+                switch (command)
+                {
+                    case "forward":
+                        horizontal += amount;
+                        depth += aim * amount;
+                        break;
+
+                    case "down":
+                        aim += amount;
+                        break;
+
+                    case "up":
+                        aim -= amount;
+                        break;
+                }
+            }
+
+            return (horizontal * depth);
         }
     }
 }
